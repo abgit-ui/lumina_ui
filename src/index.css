@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:ital,wght@0,300;0,400;0,600;1,300&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-display: "Cinzel", serif;
+  --font-sans: "Montserrat", sans-serif;
+}
+
+:root {
+  --color-moss-dark: #051109;
+  --color-moss-light: #071a0e;
+  --color-fairy-gold: #eab308;
+  --color-royal-emerald: #064e3b;
+}
+
+body {
+  background-color: var(--color-moss-dark);
+  color: #f1f5f9;
+  overflow-x: hidden;
+  cursor: none; /* Hide default cursor for the custom one */
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+}
+
+.reveal-text {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Atmospheric Overlays */
+.mist-overlay::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(5, 17, 9, 0.4) 100%);
+  z-index: 40;
+}
+
+.grain-overlay::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  opacity: 0.03;
+  z-index: 60;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(7, 26, 14, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(234, 179, 8, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-moss-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, transparent, var(--color-fairy-gold), transparent);
+  border-radius: 10px;
+}
+
+/* Text Effects */
+.text-glow {
+  text-shadow: 0 0 15px rgba(234, 179, 8, 0.3);
+}
+
+.italic-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Image Masking */
+.oval-mask {
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  overflow: hidden;
+}
+
+/* Animation Utilities */
+.float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
